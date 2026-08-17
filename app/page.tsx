@@ -1,25 +1,30 @@
 import Image from "next/image";
+import Link from "next/link";
 
 const curriculumAreas = [
+  {
+    title: "Curriculum Overview",
+    description: "Understand how the curriculum is structured and how to use it.",
+    icon: "🧭",
+    href: "/curriculum/overview",
+  },
+  {
+    title: "Curriculum Glossary",
+    description: "Understand the key language used throughout the curriculum.",
+    icon: "📖",
+    href: "/curriculum/glossary",
+  },
   {
     title: "KS1 Curriculum",
     description: "Explore Year 1 and Year 2 PE curriculum.",
     icon: "📚",
+    href: "/curriculum/ks1",
   },
   {
     title: "KS2 Curriculum",
     description: "Explore Year 3 to Year 6 PE curriculum.",
     icon: "🏫",
-  },
-  {
-    title: "Assessment",
-    description: "Track pupil progress and development.",
-    icon: "📊",
-  },
-  {
-    title: "Resources",
-    description: "Access lesson plans, PDFs, images and videos.",
-    icon: "📁",
+    href: "/curriculum/ks2",
   },
 ];
 
@@ -100,34 +105,33 @@ export default function Home() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
 
-          {curriculumAreas.map((area) => (
-            <div
-              key={area.title}
-              className="bg-white border rounded-2xl p-6 shadow-sm hover:shadow-md transition cursor-pointer"
-            >
+      {curriculumAreas.map((area) => (
+  <Link
+    key={area.title}
+    href={area.href}
+    className="bg-white border rounded-2xl p-6 shadow-sm hover:shadow-md hover:border-purple-500 transition"
+  >
+    <div className="text-4xl mb-5">
+      {area.icon}
+    </div>
 
-              <div className="text-4xl mb-5">
-                {area.icon}
-              </div>
+    <h3 className="text-xl font-bold text-gray-900 mb-2">
+      {area.title}
+    </h3>
 
-              <h3 className="text-xl font-bold text-gray-900 mb-2">
-                {area.title}
-              </h3>
+    <p className="text-gray-600 mb-5">
+      {area.description}
+    </p>
 
-              <p className="text-gray-600 mb-5">
-                {area.description}
-              </p>
+    <span className="text-purple-700 font-semibold">
+      Explore →
+    </span>
+</Link>
+))}
 
-              <span className="text-purple-700 font-semibold">
-                Explore →
-              </span>
+</div>
 
-            </div>
-          ))}
-
-        </div>
-
-      </section>
+</section>
 
       {/* Sports */}
       <section className="max-w-7xl mx-auto px-6 pb-16">
@@ -177,11 +181,9 @@ export default function Home() {
 
       {/* Footer */}
       <footer className="border-t bg-white">
-
         <div className="max-w-7xl mx-auto px-6 py-6 text-sm text-gray-500">
           © Legacy Sport Yorkshire · LSY Curriculum
         </div>
-
       </footer>
 
     </main>
