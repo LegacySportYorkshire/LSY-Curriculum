@@ -103,7 +103,7 @@ jobs:
             -p codesigning \
             "$KEYCHAIN_PATH"
 
-      - name: Install provisioning profile
+           - name: Install provisioning profile
         shell: bash
         env:
           BUILD_PROVISION_PROFILE_BASE64: ${{ secrets.BUILD_PROVISION_PROFILE_BASE64 }}
@@ -130,15 +130,18 @@ jobs:
             -c "Print :Name" \
             "$PROFILE_PLIST")
 
-          mkdir -p "$HOME/Library/MobileDevice/Provisioning Profiles"
+          PROFILE_DIR="$HOME/Library/Developer/Xcode/UserData/Provisioning Profiles"
+
+          mkdir -p "$PROFILE_DIR"
 
           cp "$PROFILE_PATH" \
-            "$HOME/Library/MobileDevice/Provisioning Profiles/$PROFILE_UUID.mobileprovision"
+            "$PROFILE_DIR/$PROFILE_UUID.mobileprovision"
 
           echo "PROFILE_UUID=$PROFILE_UUID" >> "$GITHUB_ENV"
           echo "PROFILE_NAME=$PROFILE_NAME" >> "$GITHUB_ENV"
 
           echo "Installed provisioning profile: $PROFILE_NAME"
+          echo "Installed at: $PROFILE_DIR/$PROFILE_UUID.mobileprovision"
 
       - name: Archive iOS app
         shell: bash
