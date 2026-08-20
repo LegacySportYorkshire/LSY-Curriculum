@@ -30,7 +30,7 @@ jobs:
       - name: Sync Capacitor iOS
         run: npx cap sync ios
 
-        - name: Show Xcode version
+      - name: Show Xcode version
         run: xcodebuild -version
 
       - name: Create App Store Connect API key file
