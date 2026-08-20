@@ -33,17 +33,16 @@ jobs:
       - name: Show Xcode version
         run: xcodebuild -version
 
-      - name: Create App Store Connect API key file
+      -       - name: Create App Store Connect API key file
         shell: bash
         run: |
           KEY_PATH="$RUNNER_TEMP/AuthKey_${{ secrets.APP_STORE_CONNECT_KEY_ID }}.p8"
 
-          printf '%s' "${{ secrets.APP_STORE_CONNECT_API_KEY }}" > "$KEY_PATH"
+          echo "${{ secrets.APP_STORE_CONNECT_API_KEY_BASE64 }}" | base64 --decode > "$KEY_PATH"
 
           chmod 600 "$KEY_PATH"
 
           echo "API_KEY_PATH=$KEY_PATH" >> "$GITHUB_ENV"
-
       - name: Archive iOS app
         run: |
           xcodebuild \
