@@ -1,3 +1,4 @@
+cat > .github/workflows/ios-testflight.yml <<'YAML'
 name: iOS TestFlight
 
 on:
@@ -40,7 +41,6 @@ jobs:
           APP_STORE_CONNECT_KEY_ID: ${{ secrets.APP_STORE_CONNECT_KEY_ID }}
         run: |
           mkdir -p "$HOME/.appstoreconnect/private_keys"
-
           KEY_PATH="$HOME/.appstoreconnect/private_keys/AuthKey_${APP_STORE_CONNECT_KEY_ID}.p8"
           export KEY_PATH
 
@@ -55,12 +55,10 @@ jobs:
           PY
 
           chmod 600 "$KEY_PATH"
-
           openssl pkey -in "$KEY_PATH" -noout
-
           echo "API_KEY_PATH=$KEY_PATH" >> "$GITHUB_ENV"
 
-         - name: Install Apple Distribution certificate
+      - name: Install Apple Distribution certificate
         shell: bash
         env:
           BUILD_CERTIFICATE_BASE64: ${{ secrets.BUILD_CERTIFICATE_BASE64 }}
@@ -69,7 +67,6 @@ jobs:
           CERTIFICATE_PATH="$RUNNER_TEMP/LSY-Distribution.p12"
           KEYCHAIN_PATH="$RUNNER_TEMP/app-signing.keychain-db"
           KEYCHAIN_PASSWORD="$(openssl rand -base64 24)"
-
           export CERTIFICATE_PATH
 
           python3 - <<'PY'
@@ -88,7 +85,6 @@ jobs:
           security import "$CERTIFICATE_PATH" \
             -P "$P12_PASSWORD" \
             -A \
-            -t cert \
             -f pkcs12 \
             -k "$KEYCHAIN_PATH"
 
@@ -99,7 +95,6 @@ jobs:
             "$KEYCHAIN_PATH"
 
           security list-keychains -d user -s "$KEYCHAIN_PATH"
-
           security find-identity -v -p codesigning "$KEYCHAIN_PATH"
 
       - name: Archive iOS app
@@ -153,3 +148,4 @@ jobs:
             -authenticationKeyPath "$API_KEY_PATH" \
             -authenticationKeyID "${{ secrets.APP_STORE_CONNECT_KEY_ID }}" \
             -authenticationKeyIssuerID "${{ secrets.APP_STORE_CONNECT_ISSUER_ID }}"
+YAML
