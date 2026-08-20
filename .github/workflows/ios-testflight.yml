@@ -60,7 +60,7 @@ jobs:
 
           echo "API_KEY_PATH=$KEY_PATH" >> "$GITHUB_ENV"
 
-                - name: Install Apple Distribution certificate
+         - name: Install Apple Distribution certificate
         shell: bash
         env:
           BUILD_CERTIFICATE_BASE64: ${{ secrets.BUILD_CERTIFICATE_BASE64 }}
