@@ -1,4 +1,3 @@
-cat > .github/workflows/ios-testflight.yml <<'YAML'
 name: iOS TestFlight
 
 on:
@@ -148,4 +147,3 @@ jobs:
             -authenticationKeyPath "$API_KEY_PATH" \
             -authenticationKeyID "${{ secrets.APP_STORE_CONNECT_KEY_ID }}" \
             -authenticationKeyIssuerID "${{ secrets.APP_STORE_CONNECT_ISSUER_ID }}"
-YAML
