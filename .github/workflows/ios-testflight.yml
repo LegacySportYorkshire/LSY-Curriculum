@@ -31,6 +31,7 @@ jobs:
         run: npx cap sync ios
 
       - name: Show Xcode version
+      
         run: xcodebuild -version
       - name: Create App Store Connect API key file
         shell: bash
