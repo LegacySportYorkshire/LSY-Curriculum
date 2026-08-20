@@ -39,22 +39,19 @@ jobs:
           APP_STORE_CONNECT_API_KEY_BASE64: ${{ secrets.APP_STORE_CONNECT_API_KEY_BASE64 }}
           APP_STORE_CONNECT_KEY_ID: ${{ secrets.APP_STORE_CONNECT_KEY_ID }}
         run: |
+          set -euo pipefail
+
           mkdir -p "$HOME/.appstoreconnect/private_keys"
+
           KEY_PATH="$HOME/.appstoreconnect/private_keys/AuthKey_${APP_STORE_CONNECT_KEY_ID}.p8"
           export KEY_PATH
 
-          python3 - <<'PY'
-          import base64
-          import os
-          from pathlib import Path
-
-          encoded = os.environ["APP_STORE_CONNECT_API_KEY_BASE64"].strip()
-          key_path = Path(os.environ["KEY_PATH"])
-          key_path.write_bytes(base64.b64decode(encoded))
-          PY
+          python3 -c 'import base64,os,pathlib; pathlib.Path(os.environ["KEY_PATH"]).write_bytes(base64.b64decode(os.environ["APP_STORE_CONNECT_API_KEY_BASE64"].strip()))'
 
           chmod 600 "$KEY_PATH"
+
           openssl pkey -in "$KEY_PATH" -noout
+
           echo "API_KEY_PATH=$KEY_PATH" >> "$GITHUB_ENV"
 
       - name: Install Apple Distribution certificate
@@ -63,23 +60,27 @@ jobs:
           BUILD_CERTIFICATE_BASE64: ${{ secrets.BUILD_CERTIFICATE_BASE64 }}
           P12_PASSWORD: ${{ secrets.P12_PASSWORD }}
         run: |
+          set -euo pipefail
+
           CERTIFICATE_PATH="$RUNNER_TEMP/LSY-Distribution.p12"
           KEYCHAIN_PATH="$RUNNER_TEMP/app-signing.keychain-db"
           KEYCHAIN_PASSWORD="$(openssl rand -base64 24)"
+
           export CERTIFICATE_PATH
 
-          python3 - <<'PY'
-          import base64
-          import os
-          from pathlib import Path
+          python3 -c 'import base64,os,pathlib; pathlib.Path(os.environ["CERTIFICATE_PATH"]).write_bytes(base64.b64decode(os.environ["BUILD_CERTIFICATE_BASE64"].strip()))'
 
-          encoded = os.environ["BUILD_CERTIFICATE_BASE64"].strip()
-          Path(os.environ["CERTIFICATE_PATH"]).write_bytes(base64.b64decode(encoded))
-          PY
+          security create-keychain \
+            -p "$KEYCHAIN_PASSWORD" \
+            "$KEYCHAIN_PATH"
 
-          security create-keychain -p "$KEYCHAIN_PASSWORD" "$KEYCHAIN_PATH"
-          security set-keychain-settings -lut 21600 "$KEYCHAIN_PATH"
-          security unlock-keychain -p "$KEYCHAIN_PASSWORD" "$KEYCHAIN_PATH"
+          security set-keychain-settings \
+            -lut 21600 \
+            "$KEYCHAIN_PATH"
+
+          security unlock-keychain \
+            -p "$KEYCHAIN_PASSWORD" \
+            "$KEYCHAIN_PATH"
 
           security import "$CERTIFICATE_PATH" \
             -P "$P12_PASSWORD" \
@@ -93,23 +94,67 @@ jobs:
             -k "$KEYCHAIN_PASSWORD" \
             "$KEYCHAIN_PATH"
 
-          security list-keychains -d user -s "$KEYCHAIN_PATH"
-          security find-identity -v -p codesigning "$KEYCHAIN_PATH"
+          security list-keychains \
+            -d user \
+            -s "$KEYCHAIN_PATH"
+
+          security find-identity \
+            -v \
+            -p codesigning \
+            "$KEYCHAIN_PATH"
+
+      - name: Install provisioning profile
+        shell: bash
+        env:
+          BUILD_PROVISION_PROFILE_BASE64: ${{ secrets.BUILD_PROVISION_PROFILE_BASE64 }}
+        run: |
+          set -euo pipefail
+
+          PROFILE_PATH="$RUNNER_TEMP/LSY.mobileprovision"
+          PROFILE_PLIST="$RUNNER_TEMP/profile.plist"
+
+          export PROFILE_PATH
+
+          python3 -c 'import base64,os,pathlib; pathlib.Path(os.environ["PROFILE_PATH"]).write_bytes(base64.b64decode(os.environ["BUILD_PROVISION_PROFILE_BASE64"].strip()))'
+
+          security cms \
+            -D \
+            -i "$PROFILE_PATH" \
+            > "$PROFILE_PLIST"
+
+          PROFILE_UUID=$(/usr/libexec/PlistBuddy \
+            -c "Print :UUID" \
+            "$PROFILE_PLIST")
+
+          PROFILE_NAME=$(/usr/libexec/PlistBuddy \
+            -c "Print :Name" \
+            "$PROFILE_PLIST")
+
+          mkdir -p "$HOME/Library/MobileDevice/Provisioning Profiles"
+
+          cp "$PROFILE_PATH" \
+            "$HOME/Library/MobileDevice/Provisioning Profiles/$PROFILE_UUID.mobileprovision"
+
+          echo "PROFILE_UUID=$PROFILE_UUID" >> "$GITHUB_ENV"
+          echo "PROFILE_NAME=$PROFILE_NAME" >> "$GITHUB_ENV"
+
+          echo "Installed provisioning profile: $PROFILE_NAME"
 
       - name: Archive iOS app
+        shell: bash
         run: |
+          set -euo pipefail
+
           xcodebuild \
             -project ios/App/App.xcodeproj \
             -scheme App \
             -configuration Release \
             -destination "generic/platform=iOS" \
             -archivePath "$RUNNER_TEMP/LSYCurriculum.xcarchive" \
-            -allowProvisioningUpdates \
-            -authenticationKeyPath "$API_KEY_PATH" \
-            -authenticationKeyID "${{ secrets.APP_STORE_CONNECT_KEY_ID }}" \
-            -authenticationKeyIssuerID "${{ secrets.APP_STORE_CONNECT_ISSUER_ID }}" \
             DEVELOPMENT_TEAM="${{ secrets.APPLE_TEAM_ID }}" \
-            CODE_SIGN_STYLE=Automatic \
+            CODE_SIGN_STYLE=Manual \
+            CODE_SIGN_IDENTITY="Apple Distribution" \
+            PROVISIONING_PROFILE_SPECIFIER="$PROFILE_NAME" \
             MARKETING_VERSION=1.0 \
             CURRENT_PROJECT_VERSION="${{ github.run_number }}" \
             clean archive
@@ -117,6 +162,8 @@ jobs:
       - name: Create export options
         shell: bash
         run: |
+          set -euo pipefail
+
           cat > "$RUNNER_TEMP/ExportOptions.plist" <<EOF
           <?xml version="1.0" encoding="UTF-8"?>
           <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
@@ -124,12 +171,25 @@ jobs:
           <dict>
               <key>method</key>
               <string>app-store-connect</string>
+
               <key>destination</key>
               <string>upload</string>
+
               <key>signingStyle</key>
-              <string>automatic</string>
+              <string>manual</string>
+
+              <key>signingCertificate</key>
+              <string>Apple Distribution</string>
+
               <key>teamID</key>
               <string>${{ secrets.APPLE_TEAM_ID }}</string>
+
+              <key>provisioningProfiles</key>
+              <dict>
+                  <key>uk.co.legacysportyorkshire.curriculum</key>
+                  <string>$PROFILE_NAME</string>
+              </dict>
+
               <key>uploadSymbols</key>
               <true/>
           </dict>
@@ -137,13 +197,15 @@ jobs:
           EOF
 
       - name: Upload build to App Store Connect
+        shell: bash
         run: |
+          set -euo pipefail
+
           xcodebuild \
             -exportArchive \
             -archivePath "$RUNNER_TEMP/LSYCurriculum.xcarchive" \
             -exportPath "$RUNNER_TEMP/export" \
             -exportOptionsPlist "$RUNNER_TEMP/ExportOptions.plist" \
-            -allowProvisioningUpdates \
             -authenticationKeyPath "$API_KEY_PATH" \
             -authenticationKeyID "${{ secrets.APP_STORE_CONNECT_KEY_ID }}" \
             -authenticationKeyIssuerID "${{ secrets.APP_STORE_CONNECT_ISSUER_ID }}"
