@@ -72,6 +72,7 @@ const curriculumAreas = [
 export default function CurriculumOverviewPage() {
   return (
     <main className="min-h-screen bg-stone-50">
+      {/* Header */}
       <header className="border-b bg-white">
         <div className="mx-auto max-w-7xl px-6 py-8">
           <Link
@@ -276,6 +277,75 @@ export default function CurriculumOverviewPage() {
           </div>
         </div>
 
+        {/* Long Term Planning */}
+        <div className="mb-12">
+          <div className="mb-6">
+            <p className="font-bold uppercase tracking-wide text-purple-700">
+              Planning &amp; Progression
+            </p>
+
+            <h2 className="mt-1 text-3xl font-extrabold text-gray-900">
+              KS1 Long Term Plan
+            </h2>
+
+            <p className="mt-2 max-w-3xl text-lg leading-relaxed text-gray-600">
+              See how learning is sequenced week by week across Years 1 and 2,
+              including the intended activity area and key learning focus.
+            </p>
+          </div>
+
+          <Link
+            href="/curriculum/ks1/long-term-plan"
+            className="group block overflow-hidden rounded-2xl border bg-white shadow-sm transition hover:border-purple-500 hover:shadow-lg"
+          >
+            <div className="grid gap-0 md:grid-cols-3">
+              <div className="bg-purple-700 p-8 text-white md:p-10">
+                <div className="text-5xl" aria-hidden="true">
+                  🗓️
+                </div>
+
+                <h3 className="mt-5 text-3xl font-extrabold">
+                  KS1 Long Term Plan
+                </h3>
+
+                <p className="mt-3 text-lg leading-relaxed text-purple-100">
+                  Year 1 and Year 2 curriculum sequencing.
+                </p>
+              </div>
+
+              <div className="p-8 md:col-span-2 md:p-10">
+                <h3 className="text-2xl font-extrabold text-gray-900">
+                  See the curriculum journey at a glance
+                </h3>
+
+                <p className="mt-3 text-lg leading-relaxed text-gray-700">
+                  Explore the weekly curriculum plan across KS1 and move
+                  directly into lessons and units that are already available in
+                  the app.
+                </p>
+
+                <div className="mt-6 flex flex-wrap gap-3">
+                  <span className="rounded-full bg-purple-100 px-4 py-2 font-semibold text-purple-800">
+                    Year 1
+                  </span>
+
+                  <span className="rounded-full bg-purple-100 px-4 py-2 font-semibold text-purple-800">
+                    Year 2
+                  </span>
+
+                  <span className="rounded-full bg-green-100 px-4 py-2 font-semibold text-green-800">
+                    Week-by-week progression
+                  </span>
+                </div>
+
+                <div className="mt-7 font-bold text-purple-700 transition group-hover:translate-x-1">
+                  View KS1 Long Term Plan →
+                </div>
+              </div>
+            </div>
+          </Link>
+        </div>
+
         {/* Curriculum Areas */}
         <div className="mb-12">
           <div className="mb-6">
@@ -314,6 +384,7 @@ export default function CurriculumOverviewPage() {
           </div>
         </div>
 
+        {/* Bottom Navigation */}
         <div className="flex flex-col gap-4 sm:flex-row sm:justify-between">
           <Link
             href="/curriculum/glossary"

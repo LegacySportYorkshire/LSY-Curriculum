@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">LSY Curriculum</string>
+    <string name="title_activity_main">LSY Curriculum</string>
+    <string name="package_name">uk.co.legacysportyorkshire.curriculum</string>
+    <string name="custom_url_scheme">uk.co.legacysportyorkshire.curriculum</string>
+</resources>

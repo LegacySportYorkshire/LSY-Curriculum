@@ -1,0 +1,1 @@
+export type { PELesson } from "../../types";

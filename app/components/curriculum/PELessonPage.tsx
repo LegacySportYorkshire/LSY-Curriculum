@@ -1,6 +1,5 @@
 import Link from "next/link";
-import type { PELesson, LessonBlock } from "@/app/data/dance/types";
-
+import type { PELesson, LessonBlock } from "@/app/data/KS1/types";
 type Props = {
   lesson: PELesson;
   activityName: string;

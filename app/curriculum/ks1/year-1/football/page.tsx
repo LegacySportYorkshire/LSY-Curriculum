@@ -49,11 +49,11 @@ const gameTerminology = [
     definition:
       "When the ball has been deflected off the pitch past the goal by the defending team, the game will restart with a corner kick taken from the corner of the pitch.",
   },
-  {
-    term: "Dribble Ins",
-    definition:
-      "When the ball is dropped by the player and is 'knocked' forward. This will result in a turn over.",
-  },
+{
+  term: "Dribble Ins",
+  definition:
+    "When the ball goes off the pitch, play restarts with the ball being dribbled or kicked back into the pitch.",
+},
   {
     term: "Foul",
     definition:
@@ -91,9 +91,43 @@ const gameTerminology = [
   },
 ];
 
+const lessons = [
+  {
+    number: 1,
+    title: "Drums, Treasure Island & Robin Hood",
+    href: "/curriculum/ks1/year-1/football/lesson-1",
+  },
+  {
+    number: 2,
+    title: "Robin Hood, Rainbow Rush & Dribble Knockout",
+    href: "/curriculum/ks1/year-1/football/lesson-2",
+  },
+  {
+    number: 3,
+    title: "Stuck in the Mud, Minefield Passing & Zone Ball",
+    href: "/curriculum/ks1/year-1/football/lesson-3",
+  },
+  {
+    number: 4,
+    title: "Pass and Go, Cross the River & First to Score",
+    href: "/curriculum/ks1/year-1/football/lesson-4",
+  },
+  {
+    number: 5,
+    title: "Treasure Island, Minefield Dribbling & 4 Corner Football",
+    href: "/curriculum/ks1/year-1/football/lesson-5",
+  },
+  {
+    number: 6,
+    title: "4 Corner Football & 5-a-Side Tournament",
+    href: "/curriculum/ks1/year-1/football/lesson-6",
+  },
+];
+
 export default function FootballPage() {
   return (
     <main className="min-h-screen bg-stone-50">
+      {/* Header */}
       <header className="border-b bg-white">
         <div className="mx-auto max-w-7xl px-6 py-8">
           <Link
@@ -126,6 +160,7 @@ export default function FootballPage() {
       </header>
 
       <section className="mx-auto max-w-7xl px-6 py-10">
+        {/* Curriculum Overview */}
         <div className="mb-8">
           <h2 className="text-3xl font-extrabold text-purple-700 md:text-4xl">
             Curriculum Overview
@@ -230,8 +265,8 @@ export default function FootballPage() {
                   attacking team has to be in their own half from the kick off.
                 </li>
                 <li>
-                  • The aim of the game is to get the ball in the opposition&apos;s
-                  goal.
+                  • The aim of the game is to get the ball in the
+                  opposition&apos;s goal.
                 </li>
                 <li>
                   • After a goal is scored the game restarts back in the middle
@@ -272,14 +307,17 @@ export default function FootballPage() {
                 The most important skill to learn at this age is ball control,
                 using both feet when dribbling with head up.
               </li>
+
               <li>
                 Encourage children to spread out and not all crowd the ball in
                 small games.
               </li>
+
               <li>
                 Tackling will naturally take place but at this age is not the
                 focus of the learning.
               </li>
+
               <li>
                 It is vital that children learn to respect one another and not
                 be aggressive. Teamwork and fair play need to be rewarded.
@@ -360,34 +398,37 @@ export default function FootballPage() {
           </h2>
 
           <p className="mb-6 text-lg text-gray-600">
-            Year 1 Football lessons will appear here as they are added to the
-            curriculum.
+            Select a lesson below to view the full lesson plan.
           </p>
 
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            <Link
-              href="/curriculum/ks1/year-1/football/lesson-1"
-              className="group rounded-2xl border bg-white p-6 shadow-sm transition hover:border-purple-500 hover:shadow-lg"
-            >
-              <div className="flex items-center gap-4">
-                <div className="flex h-14 w-14 items-center justify-center rounded-full bg-purple-100 text-xl font-extrabold text-purple-700">
-                  1
+            {lessons.map((lesson) => (
+              <Link
+                key={lesson.number}
+                href={lesson.href}
+                className="group rounded-2xl border bg-white p-6 shadow-sm transition hover:border-purple-500 hover:shadow-lg"
+              >
+                <div className="flex items-center gap-4">
+                  <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-purple-100 text-xl font-extrabold text-purple-700">
+                    {lesson.number}
+                  </div>
+
+                  <div>
+                    <p className="text-sm font-bold text-purple-700">
+                      LESSON {lesson.number}
+                    </p>
+
+                    <h3 className="text-xl font-bold text-gray-900 group-hover:text-purple-700">
+                      {lesson.title}
+                    </h3>
+                  </div>
                 </div>
 
-                <div>
-                  <p className="text-sm font-bold text-purple-700">LESSON 1</p>
-
-                  <h3 className="text-xl font-bold text-gray-900 group-hover:text-purple-700">
-                    Traffic Light Dribbling, Dribble Relays &amp; Sharks and
-                    Minnows
-                  </h3>
+                <div className="mt-5 font-semibold text-purple-700">
+                  View Lesson →
                 </div>
-              </div>
-
-              <div className="mt-5 font-semibold text-purple-700">
-                View Lesson →
-              </div>
-            </Link>
+              </Link>
+            ))}
           </div>
         </div>
       </section>

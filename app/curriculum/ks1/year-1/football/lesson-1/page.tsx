@@ -1,5 +1,5 @@
 import PELessonPage from "@/app/components/curriculum/PELessonPage";
-import { footballLesson1 } from "@/app/data/football/lesson-1";
+import { footballLesson1 } from "@/app/data/KS1/year-1/football/lesson-1";
 
 export default function FootballLesson1Page() {
   return (
