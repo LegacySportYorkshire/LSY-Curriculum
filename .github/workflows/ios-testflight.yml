@@ -32,15 +32,26 @@ jobs:
 
       - name: Show Xcode version
         run: xcodebuild -version
-
       - name: Create App Store Connect API key file
         shell: bash
+        env:
+          APP_STORE_CONNECT_API_KEY_BASE64: ${{ secrets.APP_STORE_CONNECT_API_KEY_BASE64 }}
+          APP_STORE_CONNECT_KEY_ID: ${{ secrets.APP_STORE_CONNECT_KEY_ID }}
         run: |
           mkdir -p "$HOME/.appstoreconnect/private_keys"
 
-          KEY_PATH="$HOME/.appstoreconnect/private_keys/AuthKey_${{ secrets.APP_STORE_CONNECT_KEY_ID }}.p8"
+          KEY_PATH="$HOME/.appstoreconnect/private_keys/AuthKey_${APP_STORE_CONNECT_KEY_ID}.p8"
+          export KEY_PATH
 
-          printf '%s' "${{ secrets.APP_STORE_CONNECT_API_KEY_BASE64 }}" | base64 --decode > "$KEY_PATH"
+          python3 - <<'PY'
+          import base64
+          import os
+          from pathlib import Path
+
+          encoded = os.environ["APP_STORE_CONNECT_API_KEY_BASE64"].strip()
+          key_path = Path(os.environ["KEY_PATH"])
+          key_path.write_bytes(base64.b64decode(encoded))
+          PY
 
           chmod 600 "$KEY_PATH"
 
