@@ -2,21 +2,20 @@ import Link from "next/link";
 
 const activities = [
   {
+    name: "Football",
+    emoji: "⚽",
+    description: "Develop Year 2 football skills, tactics and game play.",
+    href: "/curriculum/ks1/year-2/football",
+  },
+  {
     name: "Dance",
     emoji: "💃",
-    description: "Explore Year 1 dance units and lessons.",
-    href: "/curriculum/ks1/year-1/dance",
+    description: "Explore Year 2 dance units and lessons.",
   },
-{
-  name: "Football",
-  emoji: "⚽",
-  description: "Develop fundamental football skills.",
-  href: "/curriculum/ks1/year-1/football",
-},
   {
     name: "Basketball",
     emoji: "🏀",
-    description: "Explore movement, passing and ball skills.",
+    description: "Develop movement, passing and ball skills.",
   },
   {
     name: "Dodgeball",
@@ -26,22 +25,22 @@ const activities = [
   {
     name: "Cricket",
     emoji: "🏏",
-    description: "Develop basic striking and fielding skills.",
+    description: "Develop striking, bowling and fielding skills.",
   },
   {
     name: "Rounders",
     emoji: "🥎",
-    description: "Explore striking, throwing and fielding.",
+    description: "Develop striking, throwing and fielding.",
   },
   {
     name: "Tennis",
     emoji: "🎾",
-    description: "Develop racket and ball control.",
+    description: "Develop racket skills and ball control.",
   },
   {
     name: "Gymnastics",
     emoji: "🤸",
-    description: "Explore balance, movement and body control.",
+    description: "Develop balance, movement and body control.",
   },
   {
     name: "Athletics",
@@ -55,57 +54,50 @@ const activities = [
   },
 ];
 
-export default function Year1Page() {
+export default function Year2Page() {
   return (
     <main className="min-h-screen bg-gray-50">
-
-      {/* Header */}
-      <header className="bg-white border-b shadow-sm">
-        <div className="max-w-7xl mx-auto px-6 py-5">
-
+      <header className="border-b bg-white shadow-sm">
+        <div className="mx-auto max-w-7xl px-6 py-5">
           <Link
             href="/curriculum/ks1"
-            className="text-purple-700 font-semibold hover:text-purple-900"
+            className="font-semibold text-purple-700 hover:text-purple-900"
           >
             ← Back to KS1 Curriculum
           </Link>
 
           <div className="mt-6">
-            <p className="text-purple-700 font-semibold">
+            <p className="font-semibold text-purple-700">
               KS1 CURRICULUM
             </p>
 
-            <h1 className="text-4xl font-bold text-gray-900 mt-2">
-              Year 1
+            <h1 className="mt-2 text-4xl font-bold text-gray-900">
+              Year 2
             </h1>
 
-            <p className="text-gray-600 mt-2">
-              Select an activity to explore the Year 1 PE curriculum.
+            <p className="mt-2 text-gray-600">
+              Select an activity to explore the Year 2 PE curriculum.
             </p>
           </div>
-
         </div>
       </header>
 
-      {/* Activities */}
-      <section className="max-w-7xl mx-auto px-6 py-12">
-
+      <section className="mx-auto max-w-7xl px-6 py-12">
         <div className="mb-8">
           <h2 className="text-2xl font-bold text-gray-900">
-            Year 1 Activities
+            Year 2 Activities
           </h2>
 
-          <p className="text-gray-500 mt-1">
+          <p className="mt-1 text-gray-500">
             Choose an activity to view its curriculum content.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-
+        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {activities.map((activity) => {
             const card = (
               <>
-                <div className="text-5xl mb-5">
+                <div className="mb-5 text-5xl">
                   {activity.emoji}
                 </div>
 
@@ -113,11 +105,11 @@ export default function Year1Page() {
                   {activity.name}
                 </h3>
 
-                <p className="text-gray-600 mt-2">
+                <p className="mt-2 text-gray-600">
                   {activity.description}
                 </p>
 
-                <div className="text-purple-700 font-semibold mt-6">
+                <div className="mt-6 font-semibold text-purple-700">
                   {activity.href ? "View curriculum →" : "Coming soon"}
                 </div>
               </>
@@ -128,7 +120,7 @@ export default function Year1Page() {
                 <Link
                   key={activity.name}
                   href={activity.href}
-                  className="bg-white border rounded-2xl p-7 shadow-sm hover:shadow-md hover:border-purple-500 transition"
+                  className="rounded-2xl border bg-white p-7 shadow-sm transition hover:border-purple-500 hover:shadow-md"
                 >
                   {card}
                 </Link>
@@ -138,17 +130,14 @@ export default function Year1Page() {
             return (
               <div
                 key={activity.name}
-                className="bg-white border rounded-2xl p-7 shadow-sm opacity-75"
+                className="rounded-2xl border bg-white p-7 opacity-75 shadow-sm"
               >
                 {card}
               </div>
             );
           })}
-
         </div>
-
       </section>
-
     </main>
   );
 }
