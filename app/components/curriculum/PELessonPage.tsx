@@ -298,32 +298,6 @@ export default function PELessonPage({
             </ul>
           </div>
         ) : null}
-
-        {lesson.videoSupport?.available ? (
-          <div className="mb-10 rounded-2xl border bg-white p-8 shadow-sm md:p-10">
-            <div className="text-center">
-              <div className="mb-4 text-5xl" aria-hidden="true">
-                🎥
-              </div>
-
-              <h2 className="text-3xl font-extrabold text-gray-900">
-                Video Support
-              </h2>
-
-              <p className="mt-2 text-lg text-gray-600">
-                Supporting video resources for this lesson.
-              </p>
-
-              <button
-                type="button"
-                className="mt-6 rounded-xl bg-purple-700 px-7 py-3 text-lg font-bold text-white transition hover:bg-purple-800"
-              >
-                {lesson.videoSupport.label ?? "View Video Support"}
-              </button>
-            </div>
-          </div>
-        ) : null}
-
         <nav
           className="flex flex-col justify-between gap-4 sm:flex-row"
           aria-label="Lesson navigation"
