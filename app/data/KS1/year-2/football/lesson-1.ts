@@ -276,8 +276,4 @@ export const footballYear2Lesson1: PELesson = {
     "Can they communicate with team mates when passing or receiving a ball?",
     "Have they demonstrated confidence whilst dribbling with the ball?",
   ],
-
-  videoSupport: {
-    available: true,
-  },
 };

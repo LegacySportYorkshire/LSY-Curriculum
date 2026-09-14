@@ -101,7 +101,7 @@ export default function PELessonPage({
 
             <div>
               <p className="font-bold uppercase tracking-wide text-purple-700">
-                Year 1 • {activityName}
+                Year {routeBase.match(/year-(\d+)/)?.[1] ?? ""} • {activityName}
               </p>
 
               <h1 className="mt-1 text-4xl font-extrabold text-gray-900 md:text-5xl">

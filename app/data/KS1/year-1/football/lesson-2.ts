@@ -269,8 +269,4 @@ export const footballLesson2: PELesson = {
     "Can they listen and follow instructions?",
     "Are they increasing their confidence when dribbling?",
   ],
-
-  videoSupport: {
-    available: true,
-  },
 };

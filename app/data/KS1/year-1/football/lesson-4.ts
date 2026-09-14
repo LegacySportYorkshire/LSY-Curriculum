@@ -274,8 +274,4 @@ export const footballLesson4: PELesson = {
     "Can they recognise when and where to shoot to give themselves the best chance of scoring?",
     "Can they communicate with teammates and demonstrate confidence when moving with and controlling the ball?",
   ],
-
-  videoSupport: {
-    available: true,
-  },
 };

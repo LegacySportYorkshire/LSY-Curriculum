@@ -248,8 +248,4 @@ export const footballYear2Lesson6: PELesson = {
     "Can they understand the rules of a football game?",
     "Can they communicate, encourage team mates and show respect when playing?",
   ],
-
-  videoSupport: {
-    available: true,
-  },
 };

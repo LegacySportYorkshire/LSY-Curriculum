@@ -256,8 +256,4 @@ export const footballLesson3: PELesson = {
     "Can they look up and change direction when dribbling?",
     "Can they communicate with other teammates when passing and receiving?",
   ],
-
-  videoSupport: {
-    available: true,
-  },
 };

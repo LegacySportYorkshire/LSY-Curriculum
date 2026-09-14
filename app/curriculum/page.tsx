@@ -90,7 +90,10 @@ export default function CurriculumPage() {
             </p>
           </Link>
 
-          <div className="rounded-2xl border bg-white p-7 opacity-60 shadow-sm">
+          <Link
+            href="/curriculum/ks2"
+            className="rounded-2xl border bg-white p-7 shadow-sm transition hover:border-purple-500 hover:shadow-md"
+          >
             <div className="mb-4 text-4xl">🏫</div>
 
             <h2 className="text-2xl font-extrabold text-gray-900">
@@ -98,13 +101,13 @@ export default function CurriculumPage() {
             </h2>
 
             <p className="mt-3 text-gray-600">
-              Year 3 to Year 6 curriculum content will be added here.
+              Access Year 3 PE curriculum content and lesson plans.
             </p>
 
-            <p className="mt-5 font-bold text-gray-500">
-              Coming soon
+            <p className="mt-5 font-bold text-purple-700">
+              Explore KS2 →
             </p>
-          </div>
+          </Link>
         </div>
       </section>
     </main>

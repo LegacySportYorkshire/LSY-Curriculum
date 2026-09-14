@@ -243,8 +243,4 @@ export const footballYear2Lesson3: PELesson = {
     "Can they communicate with other teammates when passing and receiving?",
     "Can they encourage and motivate their partner or teammates?",
   ],
-
-  videoSupport: {
-    available: true,
-  },
 };

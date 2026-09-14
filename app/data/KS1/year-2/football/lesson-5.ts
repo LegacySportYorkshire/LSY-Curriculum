@@ -261,8 +261,4 @@ export const footballYear2Lesson5: PELesson = {
     "Do they know why and where to shoot?",
     "Are they now displaying communication and confidence when moving with the ball?",
   ],
-
-  videoSupport: {
-    available: true,
-  },
 };
