@@ -10,44 +10,44 @@ export const lesson5: PELesson = {
     {
       heading: "Dance Skills",
       objectives: [
-        "Demonstrate listening to and responding to different styles of music.",
-        "Demonstrate performing a motif with increasing confidence.",
-        "Start to combine movements and choreographic devices into a short routine.",
+        "Demonstrate ability to listen and respond to beat, rhythm, tempo and changes in music.",
+        "Demonstrate independently copying, remembering and performing a short motif with increasing accuracy.",
+        "Start to link movements together to create and perform a short dance sequence.",
       ],
     },
     {
       heading: "Physical",
       objectives: [
-        "Demonstrate body awareness, balance and co-ordination when performing movements.",
-        "Start to perform movements with greater control and fluency.",
+        "Demonstrate increasing body awareness when performing range of movements.",
+        "Start to develop co ordination when moving different body parts together.",
+        "Demonstrate and develop balance when performing different movements and shapes.",
       ],
     },
     {
       heading: "Social and Emotional",
       objectives: [
-        "Demonstrate confidence when performing in front of others.",
-        "Work with peers to create and perform a short routine.",
-        "Continue to show enjoyment, enthusiasm and encouragement towards others.",
+        "Start to work together with peers to develop and perform motif.",
+        "Start to show performance flair and enthusiasm when performing.",
+        "Continue enjoyment and enthusiasm when participating in dance.",
       ],
     },
   ],
 
   terminology: [
-    "Style",
     "Motif",
+    "Copy",
+    "Recall",
+    "Perform",
     "Routine",
-    "Performance",
-    "Performance Flair",
+    "Performance flair",
     "Self-Expression",
     "Co-ordination",
-    "Recall",
   ],
 
   choreographicDevices: [
     "Levels",
     "Tempo",
     "Dynamics",
-    "Repetition",
   ],
 
   equipment: [
@@ -80,21 +80,24 @@ export const lesson5: PELesson = {
               type: "list",
               items: [
                 "All children find a space in the activity area.",
-                "Choose a range of songs from different styles of dance.",
-                "Examples could include Country and Western, Disco, Pop, Musical Theatre, Classical, K-Pop and Street Dance.",
+                "Choose a selection of songs which allow the children to move in different ways.",
+                "Cotton Eyed Joe - Country and Western",
+                "Saturday Night Fever - Disco",
+                "Waka Waka - African Inspired",
+                "The Nutcracker - Classical",
+                "Shake it off - Pop",
+                "Let it Go - Musical Theatre",
+                "Dynamite - K-POP",
+                "I like to move it move it - Pop",
               ],
             },
             {
               type: "paragraph",
-              text: "Play each song and encourage the children to move in a way that matches the style, tempo and mood of the music.",
+              text: "Children move freely around the activity area. Different pieces of music are played as a stimulus. Encourage children to listen carefully and interpret the music through movement, adapting their actions to reflect the style, tempo, rhythm, mood and dynamics.",
             },
             {
               type: "paragraph",
-              text: "Ask children to identify the style and recall movements they have used in previous lessons.",
-            },
-            {
-              type: "paragraph",
-              text: "Encourage children to link two or more movements together to form a short motif.",
+              text: "You can introduce a musical statues format if you wish.",
             },
           ],
         },
@@ -104,12 +107,13 @@ export const lesson5: PELesson = {
             {
               type: "list",
               items: [
-                "Listen carefully to the music and respond to the beat.",
-                "Use movements that suit the style of music being played.",
-                "Recall previous movements and use them confidently.",
-                "Use the whole body when dancing.",
-                "Explore different levels, tempos and dynamics.",
-                "Encourage self-expression and performance flair.",
+                "Listen to the beat and respond through movement.",
+                "Listen to components of the music such as tempo, mood and dynamics to create their own movements.",
+                "Link movements together to form a motif.",
+                "Coordinate different body parts at the same time.",
+                "Explore contrasting movements: big/small, fast/slow and strong/gentle.",
+                "Encourage dancing in front of others with confidence.",
+                "Follow instructions and respond to music as a stimulus.",
               ],
             },
           ],
@@ -120,9 +124,9 @@ export const lesson5: PELesson = {
             {
               type: "list",
               items: [
-                "Use fewer styles if children need more repetition.",
-                "Allow children to choose the style of music.",
-                "Ask children to create a short motif to match one particular style.",
+                "Identify what kind of music the movements correlate with.",
+                "Name different dance styles.",
+                "Legacy Playback: Can the children recall the specific dance moves for each style?",
               ],
             },
           ],
@@ -141,29 +145,21 @@ export const lesson5: PELesson = {
             {
               type: "list",
               items: [
-                "Children stand in a line or small groups, one behind another, like a train.",
-                "Choose one child or the teacher to lead the train.",
+                "Split the class into small groups of 4/5.",
+                "Groups line up one behind the other.",
               ],
             },
             {
               type: "paragraph",
-              text: "The leader travels around the activity space performing a dance movement.",
+              text: "The child at the front starts a movement whilst travelling around the room to music. The rest of the group follow the leader and copy the movement.",
             },
             {
               type: "paragraph",
-              text: "The rest of the train copies the leader's movement as closely as possible.",
+              text: "When the music stops, the dance driver goes to the back of the line and a new child becomes the leader.",
             },
             {
               type: "paragraph",
-              text: "After a short period, the leader moves to the back and the next child becomes the leader.",
-            },
-            {
-              type: "paragraph",
-              text: "Continue until several children have had the opportunity to lead.",
-            },
-            {
-              type: "paragraph",
-              text: "Encourage leaders to use different styles, directions, levels and tempos.",
+              text: "Continue swapping until everyone has had a turn.",
             },
           ],
         },
@@ -173,12 +169,14 @@ export const lesson5: PELesson = {
             {
               type: "list",
               items: [
-                "Watch the leader carefully and copy their movement.",
-                "Try to move in time with the music and the rest of the group.",
-                "Use different body parts when creating movements.",
-                "Explore levels, directions, tempo and dynamics.",
-                "Maintain spatial awareness when travelling around the activity area.",
-                "Build confidence by taking a turn as the leader.",
+                "Copy the movements as accurately as possible.",
+                "Use a variety of movements, thinking about levels and dynamics.",
+                "Move in time with the music.",
+                "Develop co-ordination when copying movements whilst travelling.",
+                "Develop spatial awareness when moving around the activity area.",
+                "Work cooperatively as a group.",
+                "Take turns being the dance driver.",
+                "Respect each other.",
               ],
             },
           ],
@@ -189,10 +187,8 @@ export const lesson5: PELesson = {
             {
               type: "list",
               items: [
-                "Teacher leads first to demonstrate the activity.",
-                "Use smaller groups so children have more opportunities to lead.",
-                "Ask the leader to create a sequence of 2-3 movements rather than one movement.",
-                "Can the rest of the train remember and repeat the short motif?",
+                "Children can perform more than one movement when they are the driver.",
+                "Make the driver's movements specific to a style of dance.",
               ],
             },
           ],
@@ -203,7 +199,7 @@ export const lesson5: PELesson = {
     {
       type: "Game Play",
       icon: "🎭",
-      title: "Performance Platform",
+      title: "The Performance Platform",
       sections: [
         {
           heading: "Activity Details",
@@ -211,22 +207,22 @@ export const lesson5: PELesson = {
             {
               type: "list",
               items: [
-                "Split the class into small groups.",
-                "Each group should create a short motif or routine using movements learned throughout the unit.",
-                "Encourage children to include at least one choreographic device.",
+                "Children stay in the same groups as the previous game.",
+                "Each group finds a space.",
+                "Use a piece of music that represents the movements.",
               ],
             },
             {
               type: "paragraph",
-              text: "Give groups time to practise their motif together.",
+              text: "The children need to remember the movements they made up whilst they were the Dance Driver.",
             },
             {
               type: "paragraph",
-              text: "Each group then performs their routine to the rest of the class.",
+              text: "Children put their individual movements together to make a full motif of 4/5 movements.",
             },
             {
               type: "paragraph",
-              text: "Encourage the audience to watch positively and celebrate each group's performance.",
+              text: "Once the movements have been put together, the group performs the motif to the rest of the class.",
             },
           ],
         },
@@ -236,44 +232,27 @@ export const lesson5: PELesson = {
             {
               type: "list",
               items: [
-                "Can the group remember and perform their motif in the correct order?",
-                "Can they stay in time with the music?",
-                "Encourage clear, controlled movements.",
-                "Use the whole body and include different levels or dynamics.",
-                "Encourage facial expressions, energy and performance flair.",
-                "Promote teamwork and confidence when performing in front of others.",
+                "Remember and recall the movements from the previous game.",
+                "Link the movements together.",
+                "Try to perform the motif to music where possible.",
+                "Develop co-ordination when putting movements together.",
+                "Develop strength and stamina when performing multiple movements.",
+                "Listen to each other and respect everyone's ideas.",
+                "Practise together and try to perform the motif in unison.",
               ],
             },
           ],
         },
         {
-          heading: "Adaptations and Progressions",
+          heading: "Performance Flair",
           blocks: [
             {
               type: "list",
               items: [
-                "Allow groups to perform at the same time if children are not confident performing individually.",
-                "Reduce the motif to 2-3 movements if needed.",
-                "More confident groups can add repetition, changes in level or tempo.",
-                "Ask groups to perform independently without teacher support.",
-              ],
-            },
-          ],
-        },
-        {
-          heading: "End of Unit - Legacy Learning Outcomes",
-          blocks: [
-            {
-              type: "list",
-              items: [
-                "Can the children hear the beat and move in time with the music?",
-                "Can they copy and recall a motif?",
-                "Can they identify and respond to different styles of dance?",
-                "Can they use self-expression to create their own movements?",
-                "Can they use choreographic devices within a motif?",
-                "Can they perform confidently in front of others?",
-                "Can they work with peers to create and perform a routine?",
-                "Can they show enjoyment and enthusiasm when participating in dance?",
+                "Use facial expressions.",
+                "Perform with lots of energy.",
+                "Enjoy the performance.",
+                "Extend the limbs to finish movements clearly.",
               ],
             },
           ],
@@ -283,14 +262,17 @@ export const lesson5: PELesson = {
   ],
 
   learningQuestions: [
-    "Can the children identify different styles of dance and perform appropriate movements?",
-    "Can the children create and recall a motif?",
-    "Can the children use choreographic devices in their routine?",
-    "Can the children perform confidently in front of others?",
-    "Can the children work together and encourage one another?",
+    "Can the children move to the beat?",
+    "Can the children copy a motif and start to recall the movement?",
+    "Can the children start to learn choreographic devices?",
+    "Can the children start to learn different dance steps and understand which dance styles they are from?",
+    "Can the children start to develop balance within moving the body to a beat or music?",
+    "Can the children start to develop muscular strength to hold body shapes and move to a beat or music?",
+    "Can the children start to develop cardiovascular endurance in moving continuously to a beat or music?",
+    "Can the children start to develop gross motor skills when learning dance steps and motifs?",
+    "Can the children work with others when moving to the beat and learning a motif?",
+    "Can the children listen to one another?",
+    "Can the children build confidence when moving to music?",
+    "Can the children develop self expression?",
   ],
-
-  videoSupport: {
-    available: true,
-  },
 };

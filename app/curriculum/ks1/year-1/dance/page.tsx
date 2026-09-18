@@ -30,77 +30,122 @@ const lessons = [
 
 const keyTerminology = [
   {
-    term: "Action",
-    definition:
-      "A movement performed by the body as part of a dance or motif.",
-  },
-  {
     term: "Beat",
     definition:
-      "The steady pulse within music that helps dancers move in time.",
+      "The counts which make up a song - usually count in 8 (Salsa in 3).",
+  },
+  {
+    term: "Action",
+    definition:
+      "Any movement within the dance e.g. a turn, leap, a gesture.",
+  },
+  {
+    term: "Balance",
+    definition:
+      "Being able to maintain equilibrium whilst performing movements.",
+  },
+  {
+    term: "Flexibility",
+    definition:
+      "Flexibility in dance is the ability of a joint or series of joints to move freely through a full range of motion.",
   },
   {
     term: "Motif",
     definition:
-      "A short sequence of movements that can be repeated, developed or used as part of a routine.",
+      "A short pattern of movements.",
   },
   {
-    term: "Movement",
+    term: "Choreography",
     definition:
-      "The way the body travels, changes shape or performs an action.",
+      "A sequence of steps put together to create a routine (usually combining motifs together).",
   },
   {
-    term: "Self-Expression",
+    term: "Improvisation",
     definition:
-      "Using movement to show ideas, feelings, character or individual interpretation.",
+      "Adding personal style, emotion and improvisation to enhance a performance.",
   },
   {
     term: "Co-ordination",
     definition:
-      "Using different body parts together smoothly and under control.",
+      "Coordination in dance is the ability to move different parts of the body in a synchronised and controlled way.",
   },
   {
-    term: "Style",
+    term: "Self Expression",
     definition:
-      "A recognisable way of dancing that may be linked to a particular type of music or movement.",
+      "Being able to capture and communicate your own thoughts and emotions through dance.",
   },
   {
-    term: "Routine",
+    term: "Stimulus",
     definition:
-      "A longer sequence of linked dance movements or motifs performed in order.",
+      "Any external idea, themes, or emotions for choreography - e.g. emotions (happy/sad) or a location (the beach, at school) or a specific song.",
+  },
+  {
+    term: "Strength",
+    definition:
+      "The ability to produce force and maintain control through movements in dance.",
+  },
+  {
+    term: "Theme",
+    definition:
+      "The overall theme of the dance performance - similar to stimulus but is more generic.",
   },
   {
     term: "Performance Flair",
     definition:
-      "Using energy, expression, confidence and facial expressions to make a performance more engaging.",
+      "Using your facial expressions to enhance the theme or stimulus e.g. happy stimulus = happy face.",
   },
   {
-    term: "Recall",
+    term: "Stamina",
     definition:
-      "Remembering and repeating movements or motifs that have been learned previously.",
+      "The ability to maintain a sustained amount physical activity.",
   },
 ];
 
 const choreographicDevices = [
   {
-    term: "Levels",
+    term: "Unison/Synchronisation",
     definition:
-      "Using different heights in movement, for example low, middle and high.",
-  },
-  {
-    term: "Tempo",
-    definition:
-      "The speed of the movement or music, such as fast or slow.",
+      "Everyone in the group doing the same actions at the same time.",
   },
   {
     term: "Dynamics",
     definition:
-      "The quality or energy of movement, such as strong, soft, sharp or flowing.",
+      "The different textures of a routine e.g. fast/slow, soft/hard, levels high/low.",
+  },
+  {
+    term: "Ripple",
+    definition:
+      "When 1 person starts an action and the other follows e.g. a mexican wave.",
+  },
+  {
+    term: "Canon",
+    definition:
+      "When 1 person or group starts a motif and the same motif is started after the first group. E.g. group 1 starts motif on count 1, group 2 starts same motif on count 4.",
   },
   {
     term: "Repetition",
     definition:
-      "Repeating a movement or motif to develop a routine.",
+      "When you perform a motif and repeat the same motif (e.g. you repeat the motif which is the chorus of the song).",
+  },
+  {
+    term: "Tempo",
+    definition:
+      "The speed of which you perform a routine.",
+  },
+  {
+    term: "Climax",
+    definition:
+      "The most significant part of a routine - e.g. a crescendo in a song. You will create a routine which will emphasise this.",
+  },
+  {
+    term: "Motif Development",
+    definition:
+      "Taking a motif (small pattern of movements) and using the above devices to create a full routine.",
+  },
+  {
+    term: "Levels",
+    definition:
+      "Using height of movement to create different effects.",
   },
 ];
 
@@ -162,16 +207,11 @@ export default function DancePage() {
               <h4 className="mb-4 text-xl font-bold text-purple-700">
                 Dance Skills
               </h4>
-
               <ul className="space-y-3 text-lg leading-relaxed text-gray-700">
-                <li>• Hear a beat and move in time with music.</li>
-                <li>• Copy, recall and perform a motif.</li>
-                <li>• Explore and identify different styles of dance.</li>
-                <li>• Create simple motifs using self-expression.</li>
-                <li>
-                  • Start to use choreographic devices when creating and
-                  performing.
-                </li>
+                <li>• Demonstrate moving to the beat of the music.</li>
+                <li>• Demonstrate copying a motif and start to be able to recall the movement.</li>
+                <li>• Start to learn choreographic devices.</li>
+                <li>• Start to learn different dance steps and understand which dance styles they are from.</li>
               </ul>
             </div>
 
@@ -179,12 +219,11 @@ export default function DancePage() {
               <h4 className="mb-4 text-xl font-bold text-purple-700">
                 Physical
               </h4>
-
               <ul className="space-y-3 text-lg leading-relaxed text-gray-700">
-                <li>• Develop body awareness when moving to a beat.</li>
-                <li>• Develop co-ordination when moving body parts together.</li>
-                <li>• Develop balance through shapes and movement.</li>
-                <li>• Perform with increasing control and fluency.</li>
+                <li>• Start to develop balance within moving the body to a beat or music.</li>
+                <li>• Start to develop muscular strength to hold body shapes and move to a beat or music.</li>
+                <li>• Start to develop cardiovascular endurance in moving continuously to a beat or music.</li>
+                <li>• Start to develop gross motor skills when learning dance steps and motifs.</li>
               </ul>
             </div>
 
@@ -192,18 +231,62 @@ export default function DancePage() {
               <h4 className="mb-4 text-xl font-bold text-purple-700">
                 Social and Emotional
               </h4>
-
               <ul className="space-y-3 text-lg leading-relaxed text-gray-700">
-                <li>
-                  • Develop confidence when dancing and performing in front of
-                  others.
-                </li>
-                <li>• Respond to and follow instructions.</li>
-                <li>• Work with peers to create and perform motifs.</li>
-                <li>
-                  • Show enjoyment, enthusiasm and encouragement towards
-                  others.
-                </li>
+                <li>• Demonstrate working with others when moving to the beat and learning a motif.</li>
+                <li>• Demonstrate listening to one another.</li>
+                <li>• Demonstrate building confidence when moving to music.</li>
+                <li>• Start to develop self expression.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        {/* Dance Styles and Relevant Moves */}
+        <div className="mb-10">
+          <h2 className="mb-6 text-3xl font-extrabold text-gray-900">
+            Dance Styles and Relevant Moves
+          </h2>
+
+          <div className="grid gap-6 md:grid-cols-3">
+            <div className="rounded-2xl border bg-white p-6 shadow-sm">
+              <h3 className="mb-4 text-2xl font-bold text-purple-700">
+                Street Dance
+              </h3>
+              <ul className="space-y-2 text-lg leading-relaxed text-gray-700">
+                <li>• Top Rock</li>
+                <li>• Twist Cross Over</li>
+                <li>• Body Rock</li>
+                <li>• Pop &amp; Lock</li>
+                <li>• Hop and Head</li>
+                <li>• Groove &amp; Character</li>
+              </ul>
+            </div>
+
+            <div className="rounded-2xl border bg-white p-6 shadow-sm">
+              <h3 className="mb-4 text-2xl font-bold text-purple-700">
+                Disco
+              </h3>
+              <ul className="space-y-2 text-lg leading-relaxed text-gray-700">
+                <li>• Disco Finger</li>
+                <li>• Body Roll</li>
+                <li>• Step &amp; Roll</li>
+                <li>• Funky Box</li>
+                <li>• Shimmy</li>
+                <li>• Funky Chicken</li>
+              </ul>
+            </div>
+
+            <div className="rounded-2xl border bg-white p-6 shadow-sm">
+              <h3 className="mb-4 text-2xl font-bold text-purple-700">
+                Country &amp; Western
+              </h3>
+              <ul className="space-y-2 text-lg leading-relaxed text-gray-700">
+                <li>• Step-touch</li>
+                <li>• Grapevine</li>
+                <li>• Jazz Square</li>
+                <li>• Pivot/Turn</li>
+                <li>• Chasse/Rock Step</li>
+                <li>• 4 Walls</li>
               </ul>
             </div>
           </div>

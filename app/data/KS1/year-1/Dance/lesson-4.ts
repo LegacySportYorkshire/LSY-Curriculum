@@ -128,7 +128,6 @@ export const lesson4: PELesson = {
             {
               type: "list",
               items: [
-                "Watch the support videos for different movements for the style specific movements.",
                 "Can they name any of the different styles of dances?",
               ],
             },
@@ -290,8 +289,4 @@ export const lesson4: PELesson = {
     "Can the children create their own motif?",
     "Can the children copy and recall the motif?",
   ],
-
-  videoSupport: {
-    available: true,
-  },
 };

@@ -284,8 +284,4 @@ export const lesson2: PELesson = {
     "Are the children using their own self expression and able to create a motif to perform to others?",
     "Are the children having fun and enjoying dancing and performing to their peers?",
   ],
-
-  videoSupport: {
-    available: true,
-  },
 };

@@ -130,7 +130,6 @@ export const lesson3: PELesson = {
             {
               type: "list",
               items: [
-                "Watch the support videos for different movements for the style specific movements.",
                 "See if the children can identify what kind of music would have those movements in.",
                 "Can they name any of the different styles of dances?",
               ],
@@ -286,8 +285,4 @@ export const lesson3: PELesson = {
     "Can the children remember the names of choreographic devices?",
     "Can the children create their own movement to add to the routine?",
   ],
-
-  videoSupport: {
-    available: true,
-  },
 };

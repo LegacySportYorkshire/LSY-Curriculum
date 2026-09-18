@@ -166,10 +166,6 @@ export const lesson1: PELesson = {
               type: "paragraph",
               text: "Continue changing the actions moving into the circle each time using a different example each time.",
             },
-            {
-              type: "paragraph",
-              text: "Please see attached video support for this.",
-            },
           ],
         },
         {
@@ -280,8 +276,4 @@ export const lesson1: PELesson = {
     "Are the children using their own self expression to think of different ideas for themselves?",
     "Are the children having fun and enjoying dancing with their peers?",
   ],
-
-  videoSupport: {
-    available: true,
-  },
 };
